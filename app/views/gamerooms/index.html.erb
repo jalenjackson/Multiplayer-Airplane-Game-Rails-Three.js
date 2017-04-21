@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Gamerooms</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <h1>Joined Gamerooms</h1>
+
+<%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+
+
+  <% current_user.gamerooms.each do |gameroom| %>
+    <%= link_to gameroom.name , gameroom%>
+  <% end %>
+
+  <tbody>
+    <% @gamerooms.each do |gameroom| %>
+      <tr>
+        <td><%= link_to 'Show', gameroom %></td>
+        <td><%= link_to 'Edit', edit_gameroom_path(gameroom) %></td>
+        <td><%= link_to 'Destroy', gameroom, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Join', gameroom_gameroom_users_path(gameroom), method: :post %></td>
+        <td><%= link_to 'Leave', gameroom_gameroom_users_path(gameroom), method: :delete %></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Gameroom', new_gameroom_path %>
