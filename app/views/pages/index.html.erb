@@ -1,52 +1,51 @@
 
-  <style>
-    #world {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      top:0;
-      left:0;
-      overflow: hidden;
-      background:#35404F;
-      transition: background 400ms ease-in-out;
-    }
+<style>
+  #world {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top:0;
+    left:0;
+    overflow: hidden;
+    background:#35404F;
+    transition: background 400ms ease-in-out;
+  }
 
-    .overlay{
-      position: absolute;
-      top:0;
-      left:0;
-      width:100%;
-      height:100%;
-      background:rgba(0,0,0,0);
-      position: none;
-    }
+  .overlay{
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0);
+    position: none;
+  }
 
-    .name{
-      color:white;
-      font-size:20px;
-    }
+  .name{
+    color:white;
+    font-size:20px;
+  }
 
-      .f{
-        color:white;
-        float:left;
-      }
-      .s{
-        color:white;
+  .f{
+    color:white;
+    float:left;
+  }
+  .s{
+    color:white;
 
-        float:right;
-      }
+    float:right;
+  }
 
 
-  </style>
+</style>
 
 
 <div id="world"></div>
 <div class = "overlay">
 
-  <p id="notice"><%= notice %></p>
 
-  <p class = "f"><%= @gameroom.users.first.email %></p>
-  <p class = "s"><%= @gameroom.users.second.email %></p>
+  <p class = "f"> first player</p>
+  <p class = "s">Second player</p>
 
 </div>
 
@@ -256,7 +255,7 @@
 
     Cloud = function () {
         this.mesh = new THREE.Object3D();
-        var geom = new THREE.BoxGeometry(Math.floor(Math.random() * (100 - 50)) + 50,.6,.6);
+        var geom = new THREE.BoxGeometry(Math.floor(Math.random() * (3 - 7)) + 10,.6,.6);
         var mat = new THREE.MeshPhongMaterial({
             color:Colors.neon
         });
@@ -389,14 +388,12 @@
         var targetX = normalize(mousePos.x, -1, 1, -200, 100);
         var targetY = normalize(mousePos.y, -1, 1, 25, 175);
 
-        var targetX2 = normalize(mousePos.x, -1, 1, -200, 200);
-        var targetY2 = normalize(mousePos.y, -1, 1, 25, 175);
 
-          airplane.mesh.position.y = targetY;
-          airplane.mesh.position.x = targetX;
+        airplane.mesh.position.y = targetY;
+        airplane.mesh.position.x = targetX;
 
-          airplane2.mesh.position.y = targetY2;
-          airplane2.mesh.position.x = targetX2;
+
+
         airplane.propeller.rotation.x += 0.3;
         airplane2.propeller.rotation.x += 0.3;
 

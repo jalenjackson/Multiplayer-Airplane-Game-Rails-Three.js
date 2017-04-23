@@ -1,5 +1,4 @@
 class GameroomsController < ApplicationController
-  before_action :set_gameroom, only: [:show, :edit, :update, :destroy]
 
   # GET /gamerooms
   # GET /gamerooms.json
@@ -24,7 +23,7 @@ class GameroomsController < ApplicationController
   # POST /gamerooms
   # POST /gamerooms.json
   def create
-    @gameroom = current_user.gamerooms.build (gameroom_params)
+    @gameroom = Gameroom.new
 
     if @gameroom.save
       redirect_to @gameroom
@@ -59,9 +58,6 @@ class GameroomsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_gameroom
-      @gameroom = Gameroom.find(params[:id])
-    end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def gameroom_params
