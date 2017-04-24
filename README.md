@@ -1,1 +1,1 @@
-https://multiplayerairplanegame.herokuapp.com/
+Live on Heroku https://multiplayerairplanegame.herokuapp.com/
